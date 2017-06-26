@@ -1,30 +1,71 @@
+
 apply plugin: 'com.android.application'
 
 android {
-  compileSdkVersion 26
-  buildToolsVersion "26.0.0"
+  compileSdkVersion versions.COMPILE_SDK
+  buildToolsVersion versions.BUILD_TOOLS
   defaultConfig {
     applicationId "com.serioscompany.weather"
-    minSdkVersion 21
-    targetSdkVersion 26
+    minSdkVersion versions.MIN_SDK
+    targetSdkVersion versions.TARGET_SDK
     versionCode 1
     versionName "1.0"
     testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
   }
+
   buildTypes {
+    debug {
+      buildConfigField "String", "AUTOCOMPLETE_URL", "\"http://autocomplete.wunderground.com\""
+    }
     release {
+      buildConfigField "String", "AUTOCOMPLETE_URL", "\"http://autocomplete.wunderground.com\""
       minifyEnabled false
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
     }
   }
+
+  packagingOptions {
+    exclude 'META-INF/LICENSE'
+  }
 }
 
 dependencies {
+  //libs
   compile fileTree(dir: 'libs', include: ['*.jar'])
-  androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-    exclude group: 'com.android.support', module: 'support-annotations'
-  })
-  compile 'com.android.support:appcompat-v7:26.+'
-  compile 'com.android.support.constraint:constraint-layout:1.0.2'
+
+  //android
+  compile "com.android.support:appcompat-v7:$versions.SUPPORT"
+  compile "com.android.support:design:$versions.SUPPORT"
+  compile "com.jakewharton:butterknife:$versions.BUTTER_KNIFE"
+  annotationProcessor "com.jakewharton:butterknife-compiler:$versions.BUTTER_KNIFE"
+  compile "frankiesardo:icepick:$versions.ICE_PICK"
+  provided "frankiesardo:icepick-processor:$versions.ICE_PICK"
+
+  //rest
+  compile "com.squareup.retrofit2:retrofit:$versions.RETROFIT"
+  compile "com.squareup.okhttp3:logging-interceptor:$versions.OK_HTTP_LOGGING"
+  compile "com.squareup.retrofit2:adapter-rxjava:$versions.RETROFIT"
+  compile "com.squareup.retrofit2:converter-jackson:$versions.RETROFIT"
+
+  //concurrency
+  compile "io.reactivex:rxjava:$versions.RX_JAVA"
+  compile "io.reactivex:rxandroid:$versions.RX_ANDROID"
+
+  //dependency_injections
+  compile "com.google.dagger:dagger:$versions.DAGGER"
+  annotationProcessor "com.google.dagger:dagger-compiler:$versions.DAGGER"
+
+  //tools
+  compile "org.apache.commons:commons-lang3:$versions.COMMAND_LANG3"
+  compile "gun0912.ted:tedpermission:$versions.TED_PERMISSION"
+
+  //test
+  compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha8'
   testCompile 'junit:junit:4.12'
 }
+
+repositories {
+  mavenCentral()
+  maven { url "https://clojars.org/repo/" }
+}
+
