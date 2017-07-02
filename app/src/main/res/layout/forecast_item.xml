@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:divider="@drawable/transparent_divider_10dp"
+    android:orientation="horizontal"
+    android:padding="10dp"
+    android:showDividers="middle"
+    >
+
+  <LinearLayout
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:layout_weight="1"
+      android:divider="@drawable/transparent_divider_10dp"
+      android:gravity="center"
+      android:orientation="vertical"
+      android:showDividers="middle"
+      >
+
+    <TextView
+        android:id="@+id/tv_day"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="12sp"
+        tools:text="Вскресенье"
+        />
+
+    <TextView
+        android:id="@+id/tv_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        tools:text="07/02"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+      <TextView
+          android:id="@+id/tv_degree_high"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:gravity="center"
+          android:textColor="@android:color/holo_red_dark"
+          tools:text="16"
+          />
+
+      <TextView
+          android:id="@+id/tv_degree_low"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:gravity="center"
+          android:textColor="@android:color/holo_blue_dark"
+          tools:text="16"
+          />
+
+      <TextView
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:text="@string/degrees_text"
+          tools:text="°C"
+          />
+
+    </LinearLayout>
+
+  </LinearLayout>
+
+  <LinearLayout
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:layout_weight="3"
+      android:divider="@drawable/transparent_divider_10dp"
+      android:orientation="vertical"
+      android:showDividers="middle"
+      >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@drawable/transparent_divider_10dp"
+        android:orientation="horizontal"
+        android:showDividers="middle"
+        >
+
+      <android.support.v7.widget.AppCompatImageView
+          android:id="@+id/iv_status_icon_day"
+          android:layout_width="50dp"
+          android:layout_height="50dp"
+          android:layout_gravity="center_vertical"
+          android:adjustViewBounds="true"
+          tools:src="@mipmap/ic_launcher"
+          />
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:divider="@drawable/transparent_divider_10dp"
+          android:orientation="vertical"
+          android:showDividers="middle"
+          >
+
+        <TextView
+            android:id="@+id/tv_day_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textStyle="bold"
+            tools:text="ndjsakndjkasnjdsadasdasdsadsadasdasjkdnjaksns"
+            />
+
+        <TextView
+            android:id="@+id/tv_day_weather_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:text="ndjasndksandjaksndsjak"
+            />
+
+      </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@drawable/transparent_divider_10dp"
+        android:orientation="horizontal"
+        android:showDividers="middle"
+        >
+
+      <android.support.v7.widget.AppCompatImageView
+          android:id="@+id/iv_status_icon_night"
+          android:layout_width="50dp"
+          android:layout_height="50dp"
+          android:layout_gravity="center_vertical"
+          android:adjustViewBounds="true"
+          tools:src="@mipmap/ic_launcher"
+          />
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:divider="@drawable/transparent_divider_10dp"
+          android:orientation="vertical"
+          android:showDividers="middle"
+          >
+
+        <TextView
+            android:id="@+id/tv_night_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textStyle="bold"
+            tools:text="dsandjasndjkasd"
+            />
+
+        <TextView
+            android:id="@+id/tv_night_weather_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:text="dsandjasndjkasd"
+            />
+
+      </LinearLayout>
+
+    </LinearLayout>
+
+  </LinearLayout>
+
+</LinearLayout>

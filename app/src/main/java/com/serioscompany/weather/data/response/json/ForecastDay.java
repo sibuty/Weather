@@ -1,5 +1,7 @@
 package com.serioscompany.weather.data.response.json;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.Map;
 
 /**
@@ -14,8 +16,8 @@ public class ForecastDay {
   private final Period day;
   private final Period night;
   private final DateInfo dateInfo;
-  private final String high;
-  private final String low;
+  private final int high;
+  private final int low;
   private final String conditions;
   private final String iconName;
   private final String iconUrl;
@@ -31,8 +33,8 @@ public class ForecastDay {
     this.day = day;
     this.night = night;
     this.dateInfo = dateInfo;
-    this.high = high.get(KEY_CELSIUS);
-    this.low = low.get(KEY_CELSIUS);
+    this.high = handleEmptyString(high.get(KEY_CELSIUS));
+    this.low = handleEmptyString(low.get(KEY_CELSIUS));
     this.conditions = conditions;
     this.iconName = iconName;
     this.iconUrl = iconUrl;
@@ -50,7 +52,7 @@ public class ForecastDay {
     return day;
   }
 
-  public String getHigh() {
+  public int getHigh() {
     return high;
   }
 
@@ -62,11 +64,15 @@ public class ForecastDay {
     return iconUrl;
   }
 
-  public String getLow() {
+  public int getLow() {
     return low;
   }
 
   public Period getNight() {
     return night;
+  }
+
+  private int handleEmptyString(final String number) {
+    return StringUtils.isNotBlank(number) ? Integer.valueOf(number) : 0;
   }
 }

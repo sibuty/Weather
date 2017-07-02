@@ -12,7 +12,8 @@ import dagger.Provides;
  * skype - glotemz
  * on 27.06.2017 1:48.
  */
-@Module(includes = { NetworkProviderModule.class})
+@Singleton
+@Module(includes = { NetworkProviderModule.class, ProgressDialogHelperModule.class })
 public class AppModule {
 
   private final App app;

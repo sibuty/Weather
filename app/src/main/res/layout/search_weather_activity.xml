@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="beforeDescendants"
+    android:divider="@drawable/transparent_divider_20dp"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    android:showDividers="middle"
+    app:theme="@style/AppTheme.Search"
+    >
+
+  <include layout="@layout/toolbar_simple_component" />
+
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      >
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/til_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+      <com.serioscompany.weather.ui.components.SmartyAutoCompleteTextView
+          android:id="@+id/act_location"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:hint="@string/enter_location_hint"
+          android:paddingEnd="40dp"
+          android:paddingRight="40dp"
+          android:singleLine="true"
+          />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <ProgressBar
+        android:id="@+id/pb_load_results"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:visibility="gone"
+        tools:visibility="visible"
+        />
+
+  </RelativeLayout>
+
+
+  <Button
+      android:id="@+id/b_show_forecast"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:text="@string/look_weather_button"
+      />
+
+
+</LinearLayout>

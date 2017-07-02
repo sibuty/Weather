@@ -1,5 +1,7 @@
 package com.serioscompany.weather.data.response.json;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -10,10 +12,21 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * skype - glotemz
  * on 02.07.2017 19:42.
  */
-public class AutoCompleteResult implements Comparable<AutoCompleteResult> {
+public class AutoCompleteResult implements Comparable<AutoCompleteResult>, Parcelable {
+
+  public static final Parcelable.Creator<AutoCompleteResult> CREATOR = new Parcelable.Creator<AutoCompleteResult>() {
+    @Override
+    public AutoCompleteResult createFromParcel(final Parcel source) {
+      return new AutoCompleteResult(source);
+    }
+
+    @Override
+    public AutoCompleteResult[] newArray(final int size) {
+      return new AutoCompleteResult[size];
+    }
+  };
 
   private static final String C = "RU";
-
   private final String name;
   private final String type;
   private final String c;
@@ -48,6 +61,19 @@ public class AutoCompleteResult implements Comparable<AutoCompleteResult> {
     this.longitude = longitude;
   }
 
+  protected AutoCompleteResult(Parcel in) {
+    this.name = in.readString();
+    this.type = in.readString();
+    this.c = in.readString();
+    this.zmw = in.readString();
+    this.tz = in.readString();
+    this.tzs = in.readString();
+    this.l = in.readString();
+    this.ll = in.readString();
+    this.latitude = in.readString();
+    this.longitude = in.readString();
+  }
+
   @Override
   public int compareTo(@NonNull final AutoCompleteResult o) {
     if (C.equals(o.getC())) {
@@ -55,6 +81,25 @@ public class AutoCompleteResult implements Comparable<AutoCompleteResult> {
     } else {
       return C.equals(getC()) ? -1 : getName().compareTo(o.getName());
     }
+  }
+
+  @Override
+  public int describeContents() {
+    return 0;
+  }
+
+  @Override
+  public void writeToParcel(Parcel dest, int flags) {
+    dest.writeString(this.name);
+    dest.writeString(this.type);
+    dest.writeString(this.c);
+    dest.writeString(this.zmw);
+    dest.writeString(this.tz);
+    dest.writeString(this.tzs);
+    dest.writeString(this.l);
+    dest.writeString(this.ll);
+    dest.writeString(this.latitude);
+    dest.writeString(this.longitude);
   }
 
   public String getC() {
@@ -95,6 +140,62 @@ public class AutoCompleteResult implements Comparable<AutoCompleteResult> {
 
   public String getZmw() {
     return zmw;
+  }
+
+  @Override
+  public int hashCode() {
+    int result = getName() != null ? getName().hashCode() : 0;
+    result = 31 * result + (getType() != null ? getType().hashCode() : 0);
+    result = 31 * result + (getC() != null ? getC().hashCode() : 0);
+    result = 31 * result + (getZmw() != null ? getZmw().hashCode() : 0);
+    result = 31 * result + (getTz() != null ? getTz().hashCode() : 0);
+    result = 31 * result + (getTzs() != null ? getTzs().hashCode() : 0);
+    result = 31 * result + (getL() != null ? getL().hashCode() : 0);
+    result = 31 * result + (getLl() != null ? getLl().hashCode() : 0);
+    result = 31 * result + (getLatitude() != null ? getLatitude().hashCode() : 0);
+    result = 31 * result + (getLongitude() != null ? getLongitude().hashCode() : 0);
+    return result;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (!(o instanceof AutoCompleteResult)) {
+      return false;
+    }
+
+    final AutoCompleteResult that = (AutoCompleteResult) o;
+
+    if (getName() != null ? !getName().equals(that.getName()) : that.getName() != null) {
+      return false;
+    }
+    if (getType() != null ? !getType().equals(that.getType()) : that.getType() != null) {
+      return false;
+    }
+    if (getC() != null ? !getC().equals(that.getC()) : that.getC() != null) {
+      return false;
+    }
+    if (getZmw() != null ? !getZmw().equals(that.getZmw()) : that.getZmw() != null) {
+      return false;
+    }
+    if (getTz() != null ? !getTz().equals(that.getTz()) : that.getTz() != null) {
+      return false;
+    }
+    if (getTzs() != null ? !getTzs().equals(that.getTzs()) : that.getTzs() != null) {
+      return false;
+    }
+    if (getL() != null ? !getL().equals(that.getL()) : that.getL() != null) {
+      return false;
+    }
+    if (getLl() != null ? !getLl().equals(that.getLl()) : that.getLl() != null) {
+      return false;
+    }
+    if (getLatitude() != null ? !getLatitude().equals(that.getLatitude()) : that.getLatitude() != null) {
+      return false;
+    }
+    return getLongitude() != null ? getLongitude().equals(that.getLongitude()) : that.getLongitude() == null;
   }
 
   @Override

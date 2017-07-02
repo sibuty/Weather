@@ -1,3 +1,20 @@
 <resources>
   <string name="app_name">Weather</string>
+  <string name="enter_location_hint">Введите место положение транслитом или на английском</string>
+  <string name="look_weather_button">Посмотреть прогноз погоды</string>
+  <string name="current_weather_button">Прогноз погоды на сегодня</string>
+  <string name="search_weather_button">Выбрать прогноз погоды</string>
+  <string name="search_weather_toolbar_title">Выбрать прогноз погоды</string>
+  <string name="handle_search_results">Обработка результата</string>
+  <string name="choose_location_from_list">Выберите значение из списка</string>
+  <string name="degrees_text">°C</string>
+  <string name="degrees">%1$s°C</string>
+  <string name="update_menu_item_title">Обновить</string>
+  <string name="message_need_location_permissions">Для правильной работы данного экрана нужно подтвердить доступ к геолокации</string>
+  <string name="button_next">Далее</string>
+  <string name="error_denied_location_permission">Вы отказались подтвердить доступ к геолокации. Просмотр прогоды недоступен. Вы можете включить доступ в настройках или выбрать просмотр погода из списка.</string>
+  <string name="button_close">Закрыть</string>
+  <string name="button_settings">Настройки</string>
+  <string name="current_weather_toolbar_title">Прогноз прогоды</string>
+  <string name="main_activity_toolbar_title">Погода</string>
 </resources>

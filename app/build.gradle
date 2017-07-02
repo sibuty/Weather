@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
 
 android {
   compileSdkVersion versions.COMPILE_SDK
@@ -13,6 +14,11 @@ android {
     buildConfigField "String", "API_KEY", "\"7d85f12ae9441287\""
     buildConfigField "String", "API_URL", "\"http://api.wunderground.com/api/\" + API_KEY + '/'"
     buildConfigField "String", "AUTOCOMPLETE_URL", "\"http://autocomplete.wunderground.com\""
+  }
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
   }
 
   buildTypes {
@@ -34,7 +40,9 @@ dependencies {
 
   //android
   compile "com.android.support:appcompat-v7:$versions.SUPPORT"
+  compile "com.android.support:support-v4:$versions.SUPPORT"
   compile "com.android.support:design:$versions.SUPPORT"
+  compile "com.google.android.gms:play-services-location:$versions.GOOGLE_SERVICES"
   compile "com.jakewharton:butterknife:$versions.BUTTER_KNIFE"
   annotationProcessor "com.jakewharton:butterknife-compiler:$versions.BUTTER_KNIFE"
   compile "frankiesardo:icepick:$versions.ICE_PICK"
@@ -57,6 +65,8 @@ dependencies {
   //tools
   compile "org.apache.commons:commons-lang3:$versions.COMMAND_LANG3"
   compile "gun0912.ted:tedpermission:$versions.TED_PERMISSION"
+  compile "com.github.bumptech.glide:glide:$versions.GLIDE"
+  annotationProcessor "com.github.bumptech.glide:compiler:$versions.GLIDE"
 
   //test
   compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha8'
@@ -67,4 +77,5 @@ repositories {
   mavenCentral()
   maven { url "https://clojars.org/repo/" }
 }
+
 

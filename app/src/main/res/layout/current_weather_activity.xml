@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:divider="@drawable/transparent_divider_20dp"
+    android:orientation="vertical"
+    android:showDividers="middle"
+    tools:context="com.serioscompany.weather.ui.CurrentWeatherActivity"
+    >
+
+  <include layout="@layout/toolbar_simple_component" />
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:divider="@drawable/transparent_divider_20dp"
+      android:orientation="vertical"
+      android:showDividers="middle"
+      >
+
+    <TextView
+        android:id="@+id/tv_title_weather"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        tools:text="ЯСНО"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:divider="@drawable/transparent_divider_20dp"
+        android:orientation="horizontal"
+        android:showDividers="middle"
+        >
+
+      <android.support.v7.widget.AppCompatImageView
+          android:id="@+id/iv_status_icon"
+          android:layout_width="0dp"
+          android:layout_height="match_parent"
+          android:layout_gravity="center"
+          android:layout_weight="1"
+          android:adjustViewBounds="true"
+          tools:src="@mipmap/ic_launcher"
+          />
+
+      <TextView
+          android:id="@+id/tv_degrees"
+          android:layout_width="0dp"
+          android:layout_height="match_parent"
+          android:layout_gravity="center"
+          android:layout_weight="1"
+          android:gravity="center"
+          android:textSize="50sp"
+          android:textStyle="bold"
+          tools:text="15°C"
+          />
+
+    </LinearLayout>
+
+  </LinearLayout>
+
+  <android.support.v7.widget.RecyclerView
+      android:id="@+id/rv_forecast_ten_days"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      />
+
+</LinearLayout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <!-- Base application theme. -->
+  <style name="AppTheme"
+      parent="Theme.AppCompat.Light.NoActionBar">
+
+    <!-- material colors -->
+    <item name="colorPrimary">@color/colorPrimary</item>
+    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    <item name="colorAccent">@color/colorAccent</item>
+
+    <!-- styles -->
+    <item name="android:toolbarStyle">@style/Toolbar</item>
+
+    <!-- other -->
+    <item name="windowNoTitle">true</item>
+    <item name="android:windowTranslucentStatus">true</item>
+
+  </style>
+
+  <style name="AppTheme.Search" parent="AppTheme">
+
+
+  </style>
+
+  <style name="AppTheme.CurrentWeather" parent="AppTheme">
+
+
+  </style>
+
+  <style name="AppTheme.ActionBar"
+      parent="ThemeOverlay.AppCompat.ActionBar">
+    <item name="android:textColorPrimary">@android:color/white</item>
+    <item name="android:background">@color/colorPrimary</item>
+  </style>
+
+</resources>
