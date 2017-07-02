@@ -1,4 +1,3 @@
-
 apply plugin: 'com.android.application'
 
 android {
@@ -12,12 +11,12 @@ android {
     versionName "1.0"
     testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     buildConfigField "String", "API_KEY", "\"7d85f12ae9441287\""
+    buildConfigField "String", "API_URL", "\"http://api.wunderground.com/api/\" + API_KEY + '/'"
     buildConfigField "String", "AUTOCOMPLETE_URL", "\"http://autocomplete.wunderground.com\""
   }
 
   buildTypes {
-    debug {
-    }
+    debug {}
     release {
       minifyEnabled false
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'

@@ -32,7 +32,7 @@ public class App extends Application{
     return DaggerAppComponent
         .builder()
         .appModule(new AppModule(this))
-        .networkProviderModule(new NetworkProviderModule(BuildConfig.AUTOCOMPLETE_URL))
+        .networkProviderModule(new NetworkProviderModule(BuildConfig.API_URL))
         .build();
   }
 

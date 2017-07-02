@@ -38,13 +38,6 @@ public class NetworkProviderModule {
     this.baseUrl = baseUrl;
   }
 
-  /*@Named("auth")
-  @Provides
-  @Singleton
-  Interceptor provideAuthInterceptor(final PreferencesManager preferencesManager) {
-    return new AuthenticationInterceptor(preferencesManager);
-  }*/
-
   @Provides
   @Singleton
   Cache provideHttpCache(final App app) {
@@ -67,13 +60,10 @@ public class NetworkProviderModule {
 
   @Provides
   @Singleton
-  OkHttpClient provideOkhttpClient(final Cache cache,
-                                   @Named("logging") final Interceptor authInterceptor/*,
-                                   @Named("auth") final Interceptor loggingInterceptor*/) {
+  OkHttpClient provideOkhttpClient(final Cache cache, @Named("logging") final Interceptor loggingInterceptor) {
     return new OkHttpClient.Builder()
         .connectTimeout(TIMEOUT, TimeUnit.SECONDS)
-        .addInterceptor(authInterceptor)
-        /*.addInterceptor(loggingInterceptor)*/
+        .addInterceptor(loggingInterceptor)
         .cache(cache)
         .build();
   }
